@@ -91,3 +91,103 @@ Module Module1
     End Sub
 End Module
 ```
+### 5. calculate the grade using a form app
+
+```vb
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim marks As Integer
+        Dim grade As String
+
+        ' Get the marks from the TextBox1
+        Integer.TryParse(TextBox1.Text, marks)
+
+        ' Calculate grade based on the marks
+        If marks >= 90 Then
+            grade = "A"
+        ElseIf marks >= 80 Then
+            grade = "B"
+        ElseIf marks >= 70 Then
+            grade = "C"
+        ElseIf marks >= 60 Then
+            grade = "D"
+        Else
+            grade = "F"
+        End If
+
+        ' Display the grade in TextBox2
+        TextBox2.Text = grade
+    End Sub
+End Class
+
+```
+
+```
+[Enter Marks:] [TextBox1]
+[Calculate Grade] [Button1]
+[Grade:] [TextBox2]
+```
+### 6. Basic calculator using a Windows Forms application in VB.NET
+
+```vb
+Public Class Form1
+    Dim firstNumber As Double
+    Dim secondNumber As Double
+    Dim operation As String
+
+    Private Sub ButtonNumber_Click(sender As Object, e As EventArgs) Handles Button0.Click, Button1.Click, Button2.Click, Button3.Click, Button4.Click, Button5.Click, Button6.Click, Button7.Click, Button8.Click, Button9.Click
+        TextBox1.Text = TextBox1.Text & CType(sender, Button).Text
+    End Sub
+
+    Private Sub ButtonAdd_Click(sender As Object, e As EventArgs) Handles ButtonAdd.Click
+        firstNumber = Convert.ToDouble(TextBox1.Text)
+        TextBox1.Text = ""
+        operation = "+"
+    End Sub
+
+    Private Sub ButtonSubtract_Click(sender As Object, e As EventArgs) Handles ButtonSubtract.Click
+        firstNumber = Convert.ToDouble(TextBox1.Text)
+        TextBox1.Text = ""
+        operation = "-"
+    End Sub
+
+    Private Sub ButtonMultiply_Click(sender As Object, e As EventArgs) Handles ButtonMultiply.Click
+        firstNumber = Convert.ToDouble(TextBox1.Text)
+        TextBox1.Text = ""
+        operation = "*"
+    End Sub
+
+    Private Sub ButtonDivide_Click(sender As Object, e As EventArgs) Handles ButtonDivide.Click
+        firstNumber = Convert.ToDouble(TextBox1.Text)
+        TextBox1.Text = ""
+        operation = "/"
+    End Sub
+
+    Private Sub ButtonEqual_Click(sender As Object, e As EventArgs) Handles ButtonEqual.Click
+        secondNumber = Convert.ToDouble(TextBox1.Text)
+        Select Case operation
+            Case "+"
+                TextBox1.Text = (firstNumber + secondNumber).ToString()
+            Case "-"
+                TextBox1.Text = (firstNumber - secondNumber).ToString()
+            Case "*"
+                TextBox1.Text = (firstNumber * secondNumber).ToString()
+            Case "/"
+                TextBox1.Text = (firstNumber / secondNumber).ToString()
+        End Select
+    End Sub
+
+    Private Sub ButtonClear_Click(sender As Object, e As EventArgs) Handles ButtonClear.Click
+        TextBox1.Text = ""
+        firstNumber = 0
+        secondNumber = 0
+    End Sub
+End Class
+```
+```
+[TextBox]
+[Button1][Button2][Button3][ButtonAdd]
+[Button4][Button5][Button6][ButtonSubtract]
+[Button7][Button8][Button9][ButtonMultiply]
+[ButtonClear][Button0][ButtonEqual][ButtonDivide]
+```
