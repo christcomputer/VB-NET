@@ -191,3 +191,119 @@ End Class
 [Button7][Button8][Button9][ButtonMultiply]
 [ButtonClear][Button0][ButtonEqual][ButtonDivide]
 ```
+### 7. Write a C# program that checks if a given string is a palindrome
+```C#
+using System;
+
+namespace PalindromeChecker
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a string:");
+            string input = Console.ReadLine();
+
+            string reversed = ReverseString(input);
+            if (input.Replace(" ", "").ToLower() == reversed.Replace(" ", "").ToLower())
+            {
+                Console.WriteLine("The string is a palindrome.");
+            }
+            else
+            {
+                Console.WriteLine("The string is not a palindrome.");
+            }
+        }
+
+        static string ReverseString(string s)
+        {
+            char[] charArray = s.ToCharArray();
+            Array.Reverse(charArray);
+            return new string(charArray);
+        }
+    }
+}
+```
+
+### 8. Write a C# program that calculates the average of a list of numbers input by the user.
+
+```C#
+using System;
+using System.Linq;
+
+namespace AverageCalculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter numbers separated by spaces:");
+            string input = Console.ReadLine();
+            double[] numbers = input.Split(' ').Select(Double.Parse).ToArray();
+            double average = numbers.Average();
+            Console.WriteLine("Average: " + average);
+        }
+    }
+}
+```
+
+### 9. Write a C# program that counts the number of vowels in a string input by the user.
+
+```C#
+using System;
+
+namespace VowelCounter
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a string:");
+            string input = Console.ReadLine().ToLower();
+            int vowelCount = 0;
+
+            foreach (char c in input)
+            {
+                if ("aeiou".Contains(c))
+                {
+                    vowelCount++;
+                }
+            }
+
+            Console.WriteLine("Number of vowels: " + vowelCount);
+        }
+    }
+}
+```
+
+### 10. Print Hello world using button Click using C# Form app
+
+```C#
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnClickThis_Click(object sender, EventArgs e)
+        {
+            lblHelloWorld.Text = "Hello World!";
+        }
+        
+    }
+}
+
+```
